@@ -12,6 +12,7 @@
 # 编译文件
 /out
 /build
+/target
 
 # 私有配置文件
 /config
