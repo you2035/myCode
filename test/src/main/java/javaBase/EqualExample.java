@@ -1,5 +1,7 @@
 package javaBase;
 
+import java.util.HashSet;
+
 /**
  * @Auther: liuxin
  * @Date: 2019/7/2 10:57
@@ -33,11 +35,30 @@ public class EqualExample {
         if (y != that.y) return false;
         return z == that.z;
     }
+    @Override
+    public int hashCode(){
+        int result = 17;
+        result = 31 * result + x;
+        result = 31 * result + y;
+        result = 31 * result + z;
+        return result;
+    }
 
     public static void main(String[] args) {
         EqualExample ee = new EqualExample(1,2,3);
         EqualExample ee2 = new EqualExample(1,2,3);
         Object o = new Object();
-        System.out.println(ee.equals(ee2));
+//        System.out.println(ee.equals(ee2));
+
+        EqualExample e1 = new EqualExample(1, 1, 1);
+        EqualExample e2 = new EqualExample(1, 1, 1);
+        System.out.println(e1.hashCode());
+        System.out.println(e2.hashCode());
+        System.out.println(e1.equals(e2)); // true
+        HashSet<EqualExample> set = new HashSet<>();
+        set.add(e1);
+        set.add(e2);
+
+        System.out.println(set.size());   // 2
     }
 }
