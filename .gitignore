@@ -1,0 +1,17 @@
+# 工程配置文件全部不要上传，因为这个都是绑定自己电脑的配置
+.idea
+.settings
+*.iml
+.classpath
+.mymetadata
+.myumldata
+.project
+.DS_Store
+
+
+# 编译文件
+/out
+/build
+
+# 私有配置文件
+/config
