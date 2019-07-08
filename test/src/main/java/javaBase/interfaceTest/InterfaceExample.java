@@ -4,6 +4,7 @@ public interface InterfaceExample {
     void func1();
 
     default void func2(){
+
         System.out.println("func2");
     }
 
