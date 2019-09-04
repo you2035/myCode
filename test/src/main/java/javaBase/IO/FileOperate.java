@@ -1,14 +1,17 @@
 package javaBase.IO;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class FileOperate {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         File file = new File("D:\\Downloads\\pic");
-        listAllFiles(file);
+//        listAllFiles(file);
+        String src = "D:\\复制\\javaNotes.pdf";
+        String toDist  = "D:\\java学习资料\\1.pdf";
+//        copyFile(src,toDist);
+        String filePath = "D:\\复制\\桌面\\桌面\\java初级.txt";
+        readFileContent(filePath);
+//        writeContentToFile(filePath);
     }
 
     public static void listAllFiles(File dir){
@@ -27,6 +30,7 @@ public class FileOperate {
         }
     }
 
+    //复制文件
     public static void copyFile(String src, String dist) throws IOException {
         FileInputStream in = new FileInputStream(src);
         FileOutputStream out = new FileOutputStream(dist);
@@ -44,4 +48,36 @@ public class FileOperate {
         in.close();
         out.close();
     }
+
+    public static void readFileContent(String filePath) throws IOException {
+
+        InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(filePath)), "GBK");
+//        FileReader fileReader = new FileReader(filePath);
+        BufferedReader bufferedReader = new BufferedReader(isr);
+
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        // 装饰者模式使得 BufferedReader 组合了一个 Reader 对象
+        // 在调用 BufferedReader 的 close() 方法时会去调用 Reader 的 close() 方法
+        // 因此只要一个 close() 调用即可
+        bufferedReader.close();
+    }
+
+    public static void writeContentToFile(String filePath) throws IOException {
+        OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(new File(filePath)),"GBK");
+        BufferedWriter bufferedWriter = new BufferedWriter(osw);
+        String s = " 我是谁";
+        try {
+            bufferedWriter.append(s);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            bufferedWriter.close();
+        }
+
+    }
+
 }
