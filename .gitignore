@@ -1,18 +1,12 @@
-# 工程配置文件全部不要上传，因为这个都是绑定自己电脑的配置
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
 .idea
-.settings
 *.iml
-.classpath
-.mymetadata
-.myumldata
-.project
-.DS_Store
+out
+gen
+test/target
 
 
-# 编译文件
-/out
-/build
-/target
-
-# 私有配置文件
-/config

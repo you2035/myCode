@@ -1,5 +1,7 @@
 package java8;
 
+import java8.FunctionalInterface.Converter;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,6 +30,29 @@ public class FormulaDemo implements Formula {
         for (String name : names) {
             System.out.print(name+" ");
         }
+
+        Lambda4 lambda4 = new Lambda4();
+        lambda4.testScopes();
     }
 
+
+
+
+}
+
+class Lambda4 {
+    static int outerStaticNum;
+    int outerNum;
+    void testScopes() {
+        Converter<Integer, String> stringConverter1 = (from) ->
+        {
+            outerNum = 23;
+            return String.valueOf(from);
+        };
+        Converter<Integer, String> stringConverter2 = (from) ->
+        {
+            outerStaticNum = 72;
+            return String.valueOf(from);
+        };
+    }
 }
