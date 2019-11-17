@@ -20,6 +20,8 @@ public class DateAction {
         Date d = c.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println(sdf.format(d));
+
+
     }
 
 }
