@@ -23,6 +23,7 @@ public class IntegerTest {
         Integer n = 12334;
         System.out.println(m == n);
 
+
 //        float f= 1.1;
         float f = 1.1f;
         short s1 = 1;
