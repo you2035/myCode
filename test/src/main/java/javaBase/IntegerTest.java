@@ -1,5 +1,9 @@
 package javaBase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
 /**
  * @Auther: liuxin
  * @Date: 2019/7/1 09:13
@@ -33,6 +37,23 @@ public class IntegerTest {
         Integer y = new Integer(1);
         System.out.println(x.equals(y)); // true
         System.out.println(x == y);      // false
+        String []strings = {"a","b","c","d"};
+        ArrayList<String> list = new ArrayList<String>(Arrays.asList(strings));
+        Iterator<String> iterator =  list.iterator();
+        while (iterator.hasNext()){
+            String s = iterator.next();
+            if(s.equals("b")){
+                iterator.remove();
+            }
+        }
+//        for (int k = 0; k < list.size(); k++) {
+//            list.remove(list.get(k));
+//        }
 
+        for (String s : list) {
+            System.out.println(s);
+        }
+
+        System.out.println(2^4);
     }
 }

@@ -16,6 +16,10 @@ public class MathTest {
         int y = (int) (Math.random()*99);    //产生[0,99)区间内的随机整数
         System.out.println("0-99之间的随机整数(不包括99)：" + y);
         System.out.println();
-
+        //Integer i = new Integer(6);
+        Integer.valueOf(6);
+        Integer i  = -129;
+        Integer j = -129;
+        System.out.println(i==j);
     }
 }

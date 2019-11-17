@@ -1,5 +1,8 @@
 package multithreading;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * @Auther: liuxin
  * @Date: 2019/7/8 14:27
@@ -34,8 +37,20 @@ public class InterruptExample {
 //        thread1.interrupt();
 //        System.out.println("Main run");
 
-        Thread thread2 = new MyThread2();
-        thread2.start();
-        thread2.interrupt();
+//        Thread thread2 = new MyThread2();
+//        thread2.start();
+//        thread2.interrupt();
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.execute(() -> {
+            try {
+                Thread.sleep(2000);
+                System.out.println("Thread run");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        executorService.shutdownNow();
+        System.out.println("Main run");
     }
 }
